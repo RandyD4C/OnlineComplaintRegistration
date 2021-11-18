@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ic_home"
+        android:icon="@drawable/ic_outline_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/ic_maps"
+        android:icon="@drawable/ic_outline_location"
+        android:title="Maps" />
+<!--    <item-->
+<!--        android:id="@+id/ic_photo"-->
+<!--        android:icon="@drawable/ic_outline_camera"-->
+<!--        android:title="Photo" />-->
+    <item
+        android:id="@+id/ic_notification"
+        android:icon="@drawable/ic_outline_notifications"
+        android:title="Notification" />
+    <item
+        android:id="@+id/ic_user"
+        android:icon="@drawable/ic_outline_person"
+        android:title="Me" />
+
+</menu>

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">MyComplaint</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="notification">Notification</string>
+    <string name="home">Home</string>
+    <string name="photo">Photo</string>
+    <string name="maps">Maps</string>
+    <string name="user_profile">User Profile</string>
+    <string name="user_name">User Name</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="complaint_priority">
+        <item>Neutral</item>
+        <item>Important</item>
+        <item>Urgent</item>
+    </string-array>
+    <string-array name="complaint_category">
+        <item>Public Facilities Failure</item>
+        <item>Road Pit</item>
+        <item>Ditch Blocked</item>
+        <item>Untreated Garbage</item>
+    </string-array>
+    <string name="note_register_management">
+        Note: In order to register as a management account, you need to provide your legit IC number and phone number.
+    </string>
+    <string name="verified_user_info">
+         - Verified badge will be appeared next to the username once you have provided your NRIC and phone number.
+         - Go to "Me" > "My Profile" , and update your NRIC and phone number
+    </string>
+    <string name="upvote_count_info">
+         - This is the indicator of your complaints\' total Upvote counts.
+    </string>
+    <string name="downvote_count_info">
+         - This is the indicator of your complaints\' total Downvote counts.
+    </string>
+    <string name="complaint_registered_info">
+         - This is where all the complaints registered by you will be grouped.
+    </string>
+    <string name="complaint_solved_info">
+         - When the management has solved your complaint, the particular complaints will be grouped here.
+    </string>
+    <string name="complaint_removed_info">
+         - Admin can remove your complaints for any reason and they will be grouped here.
+    </string>
+    <string name="complaint_handled_info">
+         - This is where all the complaints handled by you will be grouped.
+    </string>
+    <string name="complaint_solved_by_management_info">
+         - This is where all the complaints solved by you will be grouped.
+    </string>
+    <string name="notification_info"><![CDATA[<<< Swipe left to delete the notification.]]></string>
+</resources>

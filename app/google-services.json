@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "77912240085",
+    "firebase_url": "https://august-cirrus-328814-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "august-cirrus-328814",
+    "storage_bucket": "august-cirrus-328814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77912240085:android:8fae564a700cce24c9175c",
+        "android_client_info": {
+          "package_name": "com.cyx.onlinecomplaintregistration"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77912240085-i8j7tdj56ro2on9lpqe3abumv729b8au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA_KGyCpKltErJGzXR0Ojfj_KlaEt2YjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77912240085-i8j7tdj56ro2on9lpqe3abumv729b8au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
