@@ -28,17 +28,22 @@
         android:theme="@style/Theme.OnlineComplaintRegistration"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".resident.activities.user.ContactManagementActivity"
+        <activity android:name=".resident.activities.user.HelpActivity"></activity>
+        <activity
+            android:name=".resident.activities.user.ContactManagementActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
+
                 <data android:scheme="mailto" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".management.activities.ManagementComplaintPostNoButtonActivity"/>
-        <activity android:name=".management.activities.ManagementViewSingleComplaintActivity"/>
-        <activity android:name=".management.activities.ManagementMainActivity"
+        <activity android:name=".management.activities.ManagementComplaintPostNoButtonActivity" />
+        <activity android:name=".management.activities.ManagementViewSingleComplaintActivity" />
+        <activity
+            android:name=".management.activities.ManagementMainActivity"
             android:theme="@style/Theme.OnlineComplaintRegistrationNoActionBar" />
         <activity android:name=".resident.activities.map.ViewLocationActivity" />
         <activity android:name=".resident.activities.home.ViewComplaintsActivity" />
@@ -94,13 +99,14 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
+
         <service
             android:name=".classes.MyFirebaseMessagingService"
-            android:permission="com.google.android.c2dm.permission.SEND"
-            android:exported="true">
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
     </application>

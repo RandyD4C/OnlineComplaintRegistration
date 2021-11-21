@@ -16,6 +16,7 @@ import com.cyx.onlinecomplaintregistration.R
 import com.cyx.onlinecomplaintregistration.activities.LoginActivity
 import com.cyx.onlinecomplaintregistration.classes.Constants
 import com.cyx.onlinecomplaintregistration.resident.activities.user.ContactManagementActivity
+import com.cyx.onlinecomplaintregistration.resident.activities.user.HelpActivity
 import com.cyx.onlinecomplaintregistration.resident.activities.user.MyAccountActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -60,7 +61,8 @@ class UserFragment : Fragment() {
         }
 
         buttonHelp.setOnClickListener {
-            Toast.makeText(view.context, "No function yet", Toast.LENGTH_SHORT).show()
+            val intent = Intent(view.context, HelpActivity::class.java)
+            view.context.startActivity(intent)
         }
         buttonAboutUs.setOnClickListener {
             Toast.makeText(view.context, "No function yet", Toast.LENGTH_SHORT).show()
