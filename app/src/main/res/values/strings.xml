@@ -48,5 +48,6 @@
     <string name="complaint_solved_by_management_info">
          - This is where all the complaints solved by you will be grouped.
     </string>
-    <string name="notification_info"><![CDATA[<<< Swipe left to delete the notification.]]></string>
+    <string name="text_app_version">All Rights Reserved. | App Version: 1.0.0</string>
+    <string name="text_about_us">This Online Complaint Registration and Management System is developed by Chong Yong Xuan and Tan Xin Qi. We are students from Tunku Abdul Rahman University College, and this project is our Final Year Project. We hope this system can solve residents\'s problem in Kampar district.</string>
 </resources>

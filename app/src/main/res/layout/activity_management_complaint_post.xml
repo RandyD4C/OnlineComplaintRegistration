@@ -12,6 +12,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -192,10 +193,23 @@
                 app:icon="@drawable/ic_check_white"
                 app:iconGravity="textStart"
                 app:iconTint="@color/Grenn_300"
-                app:layout_constraintEnd_toStartOf="@+id/button_discharge"
+                app:layout_constraintEnd_toStartOf="@+id/view17"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_upvote" />
+
+            <View
+                android:id="@+id/view17"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/gray_100"
+                app:layout_constraintBottom_toBottomOf="@+id/button_mark_as_solved"
+                app:layout_constraintEnd_toStartOf="@+id/button_discharge"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/button_mark_as_solved"
+                app:layout_constraintTop_toTopOf="@+id/button_mark_as_solved" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_discharge"
@@ -219,7 +233,7 @@
                 app:iconTint="@color/Red_300"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_mark_as_solved"
+                app:layout_constraintStart_toEndOf="@+id/view17"
                 app:layout_constraintTop_toBottomOf="@+id/text_upvote" />
 
             <View

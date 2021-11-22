@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textColor="@color/gray_300"
-            android:text="@string/notification_info"
+            android:text="Swipe left to delete the notification."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />

@@ -28,7 +28,8 @@
         android:theme="@style/Theme.OnlineComplaintRegistration"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".resident.activities.user.HelpActivity"></activity>
+        <activity android:name=".resident.activities.user.AboutUsActivity"></activity>
+        <activity android:name=".resident.activities.user.HelpActivity" />
         <activity
             android:name=".resident.activities.user.ContactManagementActivity"
             android:exported="true">

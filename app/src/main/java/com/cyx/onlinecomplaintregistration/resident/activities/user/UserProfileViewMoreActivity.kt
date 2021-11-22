@@ -388,26 +388,41 @@ class UserProfileViewMoreActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         user!!.delete().addOnCompleteListener {
             if (it.isSuccessful){
-                Dialog(this).apply {
-                    requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    setCancelable(false)
-                    setContentView(R.layout.layout_account_deleted)
-                    val layoutParams = WindowManager.LayoutParams()
-                    layoutParams.copyFrom(window?.attributes)
-                    layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
-                    layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
-                    window?.attributes = layoutParams
-                    window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    window?.setWindowAnimations(R.style.DialogAnimation)
-                    val buttonOK: Button = findViewById(R.id.button_ok)
-                    buttonOK.setOnClickListener {
-                        dismiss()
-                        val intent = Intent(this@UserProfileViewMoreActivity, LoginActivity::class.java)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        startActivity(intent)
-                    }
-                    show()
+                removeUserToken()
+            }
+        }
+    }
+
+    private fun removeUserToken() {
+        val uid = Constants.userUID
+        val removeToken = mapOf(
+            "user_token" to "",
+            "user_email" to ""
+        )
+        reference = database.getReference("User/$uid")
+        reference.updateChildren(removeToken).addOnCompleteListener{
+            Constants.userUID = ""
+            Constants.userName = ""
+            Constants.userRole = ""
+            Dialog(this).apply {
+                requestWindowFeature(Window.FEATURE_NO_TITLE)
+                setCancelable(false)
+                setContentView(R.layout.layout_account_deleted)
+                val layoutParams = WindowManager.LayoutParams()
+                layoutParams.copyFrom(window?.attributes)
+                layoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT
+                layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT
+                window?.attributes = layoutParams
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                window?.setWindowAnimations(R.style.DialogAnimation)
+                val buttonOK: Button = findViewById(R.id.button_ok)
+                buttonOK.setOnClickListener {
+                    dismiss()
+                    val intent = Intent(this@UserProfileViewMoreActivity, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }
+                show()
             }
         }
     }
