@@ -518,9 +518,9 @@ class ViewLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLong, 13f))
         googleMap.isMyLocationEnabled = true
         googleMap.setOnMarkerClickListener(this)
+        googleMap.uiSettings.setAllGesturesEnabled(true)
         googleMap.uiSettings.isRotateGesturesEnabled = false
         googleMap.uiSettings.isCompassEnabled = false
-        googleMap.uiSettings.setAllGesturesEnabled(true)
         googleMap.uiSettings.isTiltGesturesEnabled = false
         googleMap.isBuildingsEnabled = false
         googleMap.setOnMapClickListener {

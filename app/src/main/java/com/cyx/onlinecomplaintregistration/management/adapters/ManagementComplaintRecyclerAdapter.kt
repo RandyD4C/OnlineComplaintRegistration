@@ -588,14 +588,14 @@ class ManagementComplaintRecyclerAdapter(
                     val imageVerifiedUser = dialog.findViewById<ImageView>(R.id.image_verified_user)
                     val imageNric = dialog.findViewById<ImageView>(R.id.image_nric)
                     val imagePhone = dialog.findViewById<ImageView>(R.id.image_phone)
-                    val underlinedPhoneNum = SpannableString(snapshot.child("user_phone_num").value.toString())
+                    val underlinedPhoneNum = SpannableString(if (snapshot.child("user_phone_num").value.toString() != "") snapshot.child("user_phone_num").value.toString() else "-")
                     underlinedPhoneNum.setSpan(UnderlineSpan(), 0, underlinedPhoneNum.length, 0)
                     val underlinedEmail = SpannableString(snapshot.child("user_email").value.toString())
                     underlinedEmail.setSpan(UnderlineSpan(), 0, underlinedEmail.length, 0)
 
                     textUserName.text = snapshot.child("user_name").value.toString()
                     textFullName.text = snapshot.child("user_full_name").value.toString()
-                    textNric.text = snapshot.child("user_nric").value.toString()
+                    textNric.text = if (snapshot.child("user_nric").value.toString() != "") snapshot.child("user_nric").value.toString() else "-"
                     textEmail.text = underlinedEmail
                     textPhoneNum.text = underlinedPhoneNum
 

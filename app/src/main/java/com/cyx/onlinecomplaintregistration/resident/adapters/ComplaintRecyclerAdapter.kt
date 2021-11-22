@@ -532,8 +532,8 @@ class ComplaintRecyclerAdapter(
                     textUserName.text = snapshot.child("user_name").value.toString()
                     textFullName.text = snapshot.child("user_full_name").value.toString()
                     textEmail.text = snapshot.child("user_email").value.toString()
-                    textNric.text = snapshot.child("user_nric").value.toString()
-                    textPhoneNum.text = snapshot.child("user_phone_num").value.toString()
+                    textNric.text = if (snapshot.child("user_nric").value.toString() != "") snapshot.child("user_nric").value.toString() else "-"
+                    textPhoneNum.text = if (snapshot.child("user_phone_num").value.toString() != "") snapshot.child("user_phone_num").value.toString() else "-"
 
                     Glide.with(imageAvatar.context)
                         .load(snapshot.child("user_avatar").value.toString())

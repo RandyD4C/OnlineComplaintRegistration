@@ -335,14 +335,16 @@ class RegisteringComplaintActivity : AppCompatActivity() {
                 managementUID.clear()
                 if (snapshot.exists()){
                     for (data in snapshot.children){
-                        if (data.child("user_role").value.toString() == "Management" && data.child("user_token").value.toString() != ""){
+                        if (data.child("user_role").value.toString() == "Management"){
                             managementUID.add(data.child("user_uid").value.toString())
-                            PushNotification(
-                                NotificationData(
-                                    title, message
-                                ), data.child("user_token").value.toString()
-                            ).also {
-                                sendNotification(it)
+                            if (data.child("user_token").value.toString() != ""){
+                                PushNotification(
+                                    NotificationData(
+                                        title, message
+                                    ), data.child("user_token").value.toString()
+                                ).also {
+                                    sendNotification(it)
+                                }
                             }
                         }
                     }

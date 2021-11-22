@@ -5,6 +5,7 @@
     android:id="@+id/swipeToRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_50"
     tools:context=".resident.activities.user.ContactManagementActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

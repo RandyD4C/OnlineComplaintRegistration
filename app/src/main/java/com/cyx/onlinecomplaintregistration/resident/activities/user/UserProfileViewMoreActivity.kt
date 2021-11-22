@@ -9,6 +9,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.Window
@@ -20,8 +22,6 @@ import com.cyx.onlinecomplaintregistration.classes.*
 import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.layout_change_email.*
 import kotlinx.android.synthetic.main.layout_change_email.button_cancel
 import kotlinx.android.synthetic.main.layout_change_email.button_update
@@ -43,6 +43,8 @@ class UserProfileViewMoreActivity : AppCompatActivity() {
     private var departmentList = mutableListOf<String>()
     private var isLegitUser = false
     private var isRegistered = false
+    private var isAtLeastEight: Boolean = false
+    private var hasNumber: Boolean = false
     private lateinit var database: FirebaseDatabase
     private lateinit var reference: DatabaseReference
     private var adminUID = mutableListOf<String>()
@@ -123,8 +125,24 @@ class UserProfileViewMoreActivity : AppCompatActivity() {
                 window?.setWindowAnimations(R.style.DialogAnimation)
                 val buttonUpdate: Button = findViewById(R.id.button_update)
                 val buttonCancel: Button = findViewById(R.id.button_cancel)
+                var imageViewCheck1: ImageView = findViewById(R.id.image_view_check_1)
+                var imageViewCheck2: ImageView = findViewById(R.id.image_view_check_2)
                 val editTextOldPassword: EditText = findViewById(R.id.edit_text_old_password)
                 val editTextNewPassword: EditText = findViewById(R.id.edit_text_new_password)
+                editTextNewPassword.addTextChangedListener(object : TextWatcher {
+                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+//                checkPassword()
+                    }
+
+                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                        checkPassword(editTextNewPassword, imageViewCheck1, imageViewCheck2)
+                    }
+
+                    override fun afterTextChanged(p0: Editable?) {
+//                TODO("Not yet implemented")
+                    }
+
+                })
                 buttonUpdate.setOnClickListener {
                     if (editTextOldPassword.text.toString().isNullOrEmpty()) {
                         editTextOldPassword.error = "Please enter your old password"
@@ -218,6 +236,36 @@ class UserProfileViewMoreActivity : AppCompatActivity() {
             }
             val alert = builder.create()
             alert.show()
+        }
+    }
+
+    private fun checkPassword(
+        editTextNewPassword: EditText,
+        imageViewCheck1: ImageView,
+        imageViewCheck2: ImageView
+    ) {
+        if (editTextNewPassword.text.toString().length >= 8) {
+            isAtLeastEight = true
+            imageViewCheck2.setColorFilter(
+                Color.parseColor("#4CAF50")
+            )
+        } else {
+            isAtLeastEight = false
+            imageViewCheck2.setColorFilter(
+                Color.parseColor("#b3b3b3")
+            )
+        }
+
+        if (editTextNewPassword.text.toString().matches("(.*[0-9].*)".toRegex())) {
+            hasNumber = true
+            imageViewCheck1.setColorFilter(
+                Color.parseColor("#4CAF50")
+            )
+        } else {
+            hasNumber = false
+            imageViewCheck1.setColorFilter(
+                Color.parseColor("#b3b3b3")
+            )
         }
     }
 
