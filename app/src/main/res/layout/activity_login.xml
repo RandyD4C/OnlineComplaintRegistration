@@ -61,8 +61,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:passwordToggleEnabled="true">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_text_password"
