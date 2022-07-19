@@ -53,7 +53,7 @@ class RegisteringComplaintActivity : AppCompatActivity() {
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var geocoder: Geocoder
-    private var addresses = mutableListOf<Address>()
+    private var addresses = mutableListOf<Address>().toMutableList()
     private var address: String? = null
     private var city: String? = null
     private var state: String? = null
@@ -389,7 +389,7 @@ class RegisteringComplaintActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.register_complaint, menu)
         return true
@@ -423,7 +423,7 @@ class RegisteringComplaintActivity : AppCompatActivity() {
                 longitude = currentLatLong.longitude
                 geocoder = Geocoder(this, Locale.getDefault())
                 addresses =
-                    geocoder.getFromLocation(latitude, longitude, 1)
+                    geocoder.getFromLocation(latitude, longitude, 1)!!
                 address = addresses[0].getAddressLine(0)
                 city = addresses[0].locality
                 state = addresses[0].adminArea

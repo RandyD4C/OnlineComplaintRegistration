@@ -62,7 +62,7 @@ class ViewLocationActivity : AppCompatActivity(), OnMapReadyCallback,
     private lateinit var textLocation: TextView
     private lateinit var checkBoxKampar: CheckBox
     private lateinit var geocoder: Geocoder
-    private var addresses = mutableListOf<Address>()
+    private var addresses = mutableListOf<Address>().toMutableList()
     private var address: String? = null
     private lateinit var textImportant: TextView
     private lateinit var textUrgent: TextView
@@ -546,7 +546,7 @@ class ViewLocationActivity : AppCompatActivity(), OnMapReadyCallback,
         latitude = data.complaint_latitude
         longitude = data.complaint_longitude
         addresses =
-            geocoder.getFromLocation(latitude, longitude, 1)
+            geocoder.getFromLocation(latitude, longitude, 1)!!
         address = addresses[0].getAddressLine(0)
 
         val dateTime = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

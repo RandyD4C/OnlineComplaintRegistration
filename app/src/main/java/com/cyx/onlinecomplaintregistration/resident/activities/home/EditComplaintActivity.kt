@@ -61,7 +61,7 @@ class EditComplaintActivity : AppCompatActivity() {
     private lateinit var geocoder: Geocoder
     private lateinit var lastLocation: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private var addresses = mutableListOf<Address>()
+    private var addresses = mutableListOf<Address>().toMutableList()
     private var address: String? = null
     private var imageCapture: Uri? = null
     private lateinit var photoFile: File
@@ -181,7 +181,7 @@ class EditComplaintActivity : AppCompatActivity() {
                 longitude = currentLatLong.longitude
                 geocoder = Geocoder(this, Locale.getDefault())
                 addresses =
-                    geocoder.getFromLocation(latitude, longitude, 1)
+                    geocoder.getFromLocation(latitude, longitude, 1)!!
                 address = addresses[0].getAddressLine(0)
                 postalCode = addresses[0].postalCode
 
@@ -266,7 +266,7 @@ class EditComplaintActivity : AppCompatActivity() {
         latitude = lat
         longitude = long
         addresses =
-            geocoder.getFromLocation(latitude, longitude, 1)
+            geocoder.getFromLocation(latitude, longitude, 1)!!
         address = addresses[0].getAddressLine(0)
         postalCode = addresses[0].postalCode
         textLocation.text = address
@@ -333,7 +333,7 @@ class EditComplaintActivity : AppCompatActivity() {
         alert.show()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.register_complaint, menu)
         return true

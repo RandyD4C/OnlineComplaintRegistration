@@ -27,7 +27,7 @@ class ComplaintSolvedListRecyclerAdapter(
 ) : RecyclerView.Adapter<ComplaintSolvedListRecyclerAdapter.ViewHolder>() {
 
     private lateinit var geocoder: Geocoder
-    private var addresses = mutableListOf<Address>()
+    private var addresses = mutableListOf<Address>().toMutableList()
     private var address = mutableListOf<String>()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -64,7 +64,7 @@ class ComplaintSolvedListRecyclerAdapter(
         geocoder = Geocoder(context, Locale.getDefault())
         addresses.clear()
         addresses =
-            geocoder.getFromLocation(latitude, longitude, 1)
+            geocoder.getFromLocation(latitude, longitude, 1)!!
         address.add(addresses[0].getAddressLine(0))
     }
 

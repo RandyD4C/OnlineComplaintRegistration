@@ -371,7 +371,7 @@ class MyAccountActivity : AppCompatActivity() {
         } ?: return false
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.register_complaint, menu)
         return true

@@ -343,6 +343,7 @@ class ComplaintRecyclerAdapter(
                 referenceUpVote.child("${complaint[position].complaint_uid}/$uid").removeValue()
             }
         }
+
         holder.buttonDownVote.setOnClickListener {
             val uid = FirebaseAuth.getInstance().uid
             referenceDownVote = database.getReference("DownVote")
@@ -427,10 +428,8 @@ class ComplaintRecyclerAdapter(
         val barChart: BarChart = dialog.findViewById(R.id.barChart)
         barChart.data = data
         barChart.data.notifyDataChanged()
-        barChart.notifyDataSetChanged()
 
         barChart.invalidate()
-
         barChart.axisLeft.setDrawGridLines(false)
         val xAxis: XAxis = barChart.xAxis
         xAxis.setDrawGridLines(false)
@@ -442,10 +441,8 @@ class ComplaintRecyclerAdapter(
         //remove legend
         barChart.legend.isEnabled = false
 
-
         //remove description label
         barChart.description.isEnabled = false
-
 
         //add animation
         barChart.animateY(1500)

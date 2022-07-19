@@ -73,7 +73,7 @@ class LandingPageActivity : AppCompatActivity() {
     fun isOnline(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager?.let { it ->
+        connectivityManager.let { it ->
             val capabilities =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     it.getNetworkCapabilities(it.activeNetwork)
